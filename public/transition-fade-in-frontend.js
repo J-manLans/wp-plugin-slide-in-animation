@@ -1,8 +1,8 @@
-function initTransitionFadeIn(selector = '[data-slide]') {
+function initTransitionFadeIn() {
     // If user opt out of animations
 	if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
-	
-    const elems = document.querySelectorAll(selector);
+
+    const elems = document.querySelectorAll('[data-slide]');
     if (!elems.length) return;
 
     // Helper: determine breakpoint key
@@ -38,7 +38,7 @@ function initTransitionFadeIn(selector = '[data-slide]') {
 
             distanceParsed = parseFloat(el.dataset.slideDistanceSm);
             distance = isNaN(distanceParsed)
-                ? (isNaN(parseFloat(el.dataset.slideDistanceMd)) ? distance : parseFloat(el.dataset.slideDistanceMd)) 
+                ? (isNaN(parseFloat(el.dataset.slideDistanceMd)) ? distance : parseFloat(el.dataset.slideDistanceMd))
                 : distanceParsed;
         }
 
@@ -47,7 +47,7 @@ function initTransitionFadeIn(selector = '[data-slide]') {
             case 'right': el.style.transform = `translateX(${distance}%)`; break;
             case 'up': el.style.transform = `translateY(-${distance}%)`; break;
             case 'down': el.style.transform = `translateY(${distance}%)`; break;
-            default: el.style.transform = `translateX(-${distance}%)`; 
+            default: el.style.transform = `translateX(-${distance}%)`;
         }
         el.style.opacity = 0;
         el.style.transition = `opacity ${speed}s ease, transform ${speed}s ease`;
@@ -59,7 +59,7 @@ function initTransitionFadeIn(selector = '[data-slide]') {
                     entry.target.style.opacity = 1;
                     if (direction == 'right' || direction == 'left') {
                         entry.target.style.transform = 'translateX(0)';
-                    } else { 
+                    } else {
                         entry.target.style.transform = 'translateY(0)';
                     }
                     observer.unobserve(entry.target);
