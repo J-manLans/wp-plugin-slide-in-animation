@@ -1,7 +1,7 @@
 <?php
 /**
- * Plugin Name: Transition Fade In
- * Description: Adds an option to attach a transition slide in animation to blocks in Gutenberg as they get visible in the viewport.
+ * Plugin Name: Slide-in Animations
+ * Description: Adds an option to attach a slide in animation to blocks in Gutenberg as they get visible in the viewport.
  * Version:     1.0.0
  * Author:      Joel Lansgren
  */
@@ -18,7 +18,7 @@ add_action('enqueue_block_editor_assets', function() {
         plugin_dir_url( __FILE__ ) . 'editor/index.js',
         [],
         filemtime( plugin_dir_path( __FILE__ ) . 'editor/index.js' )
-    );    
+    );
 });
 
 // Load frontend dependencies

@@ -4,7 +4,7 @@
     const { InspectorControls } = wp.blockEditor || wp.editor;
     const { PanelBody, SelectControl, ToggleControl, RangeControl } = wp.components;
 
-    // Register new attribute for all blocks 
+    // Register new attribute for all blocks
     addFilter('blocks.registerBlockType', 'transition-fade-in/attributes', function (settings) {
         if (typeof settings.attributes !== 'undefined') {
             settings.attributes = Object.assign({}, settings.attributes, {
@@ -121,7 +121,9 @@
                                 onChange: (value) => setAttributes({ slideDistance: value }),
                             }),
 
-                            createElement(PanelBody, { title: 'Medium Screens', initialOpen: false },                                
+                            // Responsive panels
+
+                            createElement(PanelBody, { title: 'Medium Screens', initialOpen: false },
                                 createElement(RangeControl, {
                                     label: 'Animation speed',
                                     value: slideSpeedMd,
